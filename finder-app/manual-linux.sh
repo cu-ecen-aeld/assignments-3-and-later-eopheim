@@ -96,8 +96,8 @@ echo "Library dependencies"
 ${CROSS_COMPILE}readelf -a "bin/busybox" | grep "program interpreter"
 ${CROSS_COMPILE}readelf -a "bin/busybox" | grep "Shared library"
 
-cp -r /home/ethan/arm-cross-compiler/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib/* "$OUTDIR/rootfs/lib"
-cp -r /home/ethan/arm-cross-compiler/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib64/* "$OUTDIR/rootfs/lib64"
+cp -r "/home/ethan/arm-cross-compiler/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib/"* "$OUTDIR/rootfs/lib"
+cp -r "/home/ethan/arm-cross-compiler/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib64/"* "$OUTDIR/rootfs/lib64"
 
 # TODO: Make device nodes
 sudo mknod -m 666 dev/null c 1 3
