@@ -105,10 +105,13 @@ pwd
 echo "-----------which------------"
 which aarch64-none-linux-gnu-gcc
 
-echo
+echo "AARCH64 DIR"
 
-cp -r "/home/ethan/arm-cross-compiler/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib/"* "$OUTDIR/rootfs/lib"
-cp -r "/home/ethan/arm-cross-compiler/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib64/"* "$OUTDIR/rootfs/lib64"
+AARCH64_DIR=`echo $PATH | tr ':' '\n' | grep "aarch64"`
+echo $AARCH64_DIR
+
+cp -r "$AARCH64_DIR/../aarch64-none-linux-gnu/libc/lib/"* "$OUTDIR/rootfs/lib"
+cp -r "$AARCH64_DIR/../aarch64-none-linux-gnu/libc/lib64/"* "$OUTDIR/rootfs/lib64"
 
 # TODO: Make device nodes
 sudo mknod -m 666 dev/null c 1 3
