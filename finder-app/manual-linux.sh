@@ -96,6 +96,17 @@ echo "Library dependencies"
 ${CROSS_COMPILE}readelf -a "bin/busybox" | grep "program interpreter"
 ${CROSS_COMPILE}readelf -a "bin/busybox" | grep "Shared library"
 
+echo "------------PATH-------------"
+echo $PATH
+
+echo "____________PWD_____________"
+pwd
+
+echo "-----------which------------"
+which aarch64-none-linux-gnu-gcc
+
+echo
+
 cp -r "/home/ethan/arm-cross-compiler/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib/"* "$OUTDIR/rootfs/lib"
 cp -r "/home/ethan/arm-cross-compiler/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib64/"* "$OUTDIR/rootfs/lib64"
 
